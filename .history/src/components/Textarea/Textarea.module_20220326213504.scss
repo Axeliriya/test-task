@@ -1,0 +1,7 @@
+@import '../../assets/styles/main.scss';
+
+.textarea {
+  width: 100%;
+  @extend %input;
+  @include font(400, 10px);
+}

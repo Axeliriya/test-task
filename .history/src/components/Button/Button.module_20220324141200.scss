@@ -1,0 +1,31 @@
+@import '../../assets/styles/main.scss';
+
+.button {
+  @extend %btn;
+  background-color: $accent-color;
+  color: $primary-color;
+  align-self: flex-start;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.ghost {
+  background-color: $success-color;
+  color: $primary-color;
+  align-self: flex-end;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.green {
+  @extend %btn;
+  background-color: $accent-color;
+  color: $primary-color;
+  align-self: flex-start;
+  &:hover {
+    opacity: 0.9;
+  }
+}

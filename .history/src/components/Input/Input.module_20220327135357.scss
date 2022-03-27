@@ -1,0 +1,52 @@
+@import '../../assets/styles/main.scss';
+
+.wrapper {
+  position: relative;
+  padding-top: 12px;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include font(400, 8px);
+}
+
+.input {
+  width: 100%;
+  @extend %input;
+  @include font(400, 10px);
+  outline: none;
+}
+
+.input:focus {
+  border: 1px solid $primary-text-color;
+}
+
+.input:read-only {
+  color: $light-color;
+  outline: none;
+  border: 1px solid transparent;
+  cursor: default;
+}
+
+.input:required {
+  color: $light-color;
+  outline: none;
+  cursor: default;
+}
+
+// .input::placeholder {
+//   color: transparent;
+// }
+
+// .input:focus + .label,
+// .input:not(:placeholder-shown) + .label {
+//   position: absolute;
+//   top: 0;
+//   left: 15px;
+//   transform: translateY(-50%);
+//   color: #45515f;
+//   background-color: white;
+//   padding: 2px;
+// }

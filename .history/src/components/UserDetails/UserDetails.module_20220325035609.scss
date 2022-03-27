@@ -1,0 +1,17 @@
+@import '../../assets/styles/main.scss';
+
+.user {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.profile {
+  border: 1px solid $secondery-color;
+  box-sizing: border-box;
+  border-radius: 8px;
+  grid-column: 1 / -1;
+}
+
+.button {
+  justify-self: end;
+}

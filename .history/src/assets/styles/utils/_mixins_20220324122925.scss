@@ -1,0 +1,57 @@
+@mixin font($weight, $size, $line-height, $letter-spacing:0.03em, $family: $common-font) {
+    font-family: $family;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+}
+
+@mixin flexbox($align:stretch, $justify:flex-start) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin for-size($range) {
+    $mobile: 480px;
+    $to-tablet: 767px;
+    $tablet: 768px;
+    $to-desktop: 1199px;
+    $desktop: 1200px;
+
+    @if $range==mobile-only {
+        @media (max-width: #{$mobile - 1}) {
+            @content;
+        }
+    }
+
+    @else if $range==mobile {
+        @media (min-width: $mobile) {
+            @content;
+        }
+    }
+
+    @else if $range==tablet {
+        @media (min-width: $tablet) {
+            @content;
+        }
+    }
+
+    @else if $range==desktop {
+        @media (min-width: $desktop) {
+            @content;
+        }
+    }
+
+    @else if $range==to-tablet {
+        @media (max-width: $to-tablet) {
+            @content;
+        }
+    }
+
+    @else if $range==to-desktop {
+        @media (max-width: $to-desktop) {
+            @content;
+        }
+    }
+}

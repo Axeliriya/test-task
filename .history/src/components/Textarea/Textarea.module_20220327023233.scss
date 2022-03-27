@@ -1,0 +1,13 @@
+@import '../../assets/styles/main.scss';
+
+.textarea {
+  width: 100%;
+  min-height: 55px;
+  @extend %input;
+  @include font(400, 10px);
+}
+
+.textarea:read-only {
+  outline: none;
+  cursor: default;
+}

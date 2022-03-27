@@ -1,0 +1,12 @@
+@import '../../assets/styles/main.scss';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 8px;
+}
+
+.span {
+  color: $light-color;
+}

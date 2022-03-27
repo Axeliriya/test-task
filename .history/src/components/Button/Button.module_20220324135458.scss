@@ -1,0 +1,7 @@
+@import '../../assets/styles/main.scss';
+
+.button {
+  @extend %btn;
+  background-color: $accent-color;
+  color: $primary-color;
+}
