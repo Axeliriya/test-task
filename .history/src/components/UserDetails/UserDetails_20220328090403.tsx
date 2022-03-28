@@ -80,8 +80,7 @@ export const UserDetails = (): JSX.Element => {
 
   const onSubmit = (e?: FormEvent<HTMLFormElement>) => {
     e?.preventDefault();
-    !isError &&
-      console.log(JSON.stringify({ ...profile, ...comment }, null, 2));
+    !isError && console.log({ ...profile, ...comment });
   };
 
   const onSubmitByEnter = (e: KeyboardEvent) => {

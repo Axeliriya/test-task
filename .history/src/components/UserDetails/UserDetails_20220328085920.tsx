@@ -28,7 +28,7 @@ export const UserDetails = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [profile, setProfile] = useState<IProfile | { [x: string]: string }>();
   const [comment, setComment] = useState<{ [x: string]: string }>();
-  const [isRead, setIsRead] = useState<boolean>(true);
+  const [isRead, setRead] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
 
   const { userId } = useParams();
@@ -67,7 +67,7 @@ export const UserDetails = (): JSX.Element => {
   }, [userId]);
 
   const onEditProfile = () => {
-    setIsRead(!isRead);
+    setRead(!isRead);
   };
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -80,8 +80,7 @@ export const UserDetails = (): JSX.Element => {
 
   const onSubmit = (e?: FormEvent<HTMLFormElement>) => {
     e?.preventDefault();
-    !isError &&
-      console.log(JSON.stringify({ ...profile, ...comment }, null, 2));
+    !isError && console.log({ ...profile, ...comment });
   };
 
   const onSubmitByEnter = (e: KeyboardEvent) => {
@@ -92,22 +91,22 @@ export const UserDetails = (): JSX.Element => {
 
   const validate = (
     e: ChangeEvent<HTMLInputElement>,
-    setIsNotValid: Dispatch<React.SetStateAction<boolean>>,
+    setIsValid: Dispatch<React.SetStateAction<boolean>>,
     setMessage: Dispatch<React.SetStateAction<string>>,
   ) => {
     if (e.target.value.length < 1) {
-      setIsNotValid(true);
+      setIsValid(true);
       setIsError(true);
       setMessage('Обязательное поле');
     } else {
       Object.entries(validateRules()).map(([key, value]) => {
         if (key === e.target.name) {
           if (value.rule(e.target.value)) {
-            setIsNotValid(false);
+            setIsValid(false);
             setIsError(false);
             setMessage('');
           } else {
-            setIsNotValid(true);
+            setIsValid(true);
             setIsError(true);
             setMessage(value.errorMesagge);
           }
